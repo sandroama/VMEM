@@ -70,7 +70,7 @@ exec(char *path, char **argv)
   if((sz = allocuvm(pgdir, sz, sz + 2*PGSIZE)) == 0)
     goto bad;
   clearpteu(pgdir, (char*)(sz - 2*PGSIZE));
-  sp = STACKTOP;
+  sp = STACKBASE;
   */
   sp=0;
   sz=PGROUNDUP(sz);
@@ -78,7 +78,7 @@ exec(char *path, char **argv)
     goto bad;
   }
   clearpteu(pgdir,(char*)(sz-PGSIZE));
-  sp=STACKTOP;
+  sp=STACKBASE;
 
   if((allocuvm(pgdir,sp-PGSIZE,sp))==0){
     goto bad;
