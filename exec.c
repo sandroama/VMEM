@@ -83,6 +83,8 @@ exec(char *path, char **argv)
   if((allocuvm(pgdir,sp-PGSIZE,sp))==0){
     goto bad;
   }
+
+  curproc->numStackPages=1;
   
 
 
