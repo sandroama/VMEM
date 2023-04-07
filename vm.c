@@ -381,7 +381,7 @@ copyuvm(pde_t *pgdir, uint sz)
   // now we copy over the stack that we created at the top of the
   // user space just below the KERNBASE
   //for(i = PGROUNDUP(STACKBASE - myproc()->numStackPages*PGSIZE); i < STACKBASE; i += PGSIZE){
-  for(i = (STACKTOP - myproc()->numStackPages*PGSIZE + 4); i < STACKTOP; i += PGSIZE){
+  for(i = (STACKBASE - myproc()->numStackPages*PGSIZE + 4); i < STACKBASE; i += PGSIZE){
 
     //cprintf("inside coy for loop for stack...\n");
     
